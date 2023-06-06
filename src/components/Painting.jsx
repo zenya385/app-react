@@ -27,9 +27,9 @@ export default function Painting({
       <p>
         Автор: <a href={authorUrl}>{authorTag}</a>
       </p>
-      <p>Цена: {price}</p>
-      <p>Доступность: заканчивается или есть в наличии</p>
-      <button type="button">Добавить в корзину</button>
+      <p>Ціна: {price}</p>
+      <p>Доступність: Редер по умові</p>
+      <button type="button">Добавити в корзину</button>
     </div>
   );
 }
