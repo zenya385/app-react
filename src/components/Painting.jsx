@@ -1,24 +1,13 @@
-// import data from "../paintings.json";
+import PropTypes from "prop-types";
 import defaultImg from "../assets/defaultImg.jpg";
-
-// const data = {
-//   id: "id-1",
-//   url: "https://cdn.pixabay.com/photo/2017/07/31/22/05/feathers-2561511_1280.jpg",
-//   title: "Feathers. Art abstract",
-//   price: 500,
-//   author: {
-//     tag: "ractapopulous",
-//     url: "https://pixabay.com/users/ractapopulous-24766/",
-//   },
-//   quantity: 10,
-// };
 
 export default function Painting({
   imgUrl = defaultImg,
   title,
   price,
   authorUrl,
-  authorTag,
+  authorTag = "невідомий",
+  quantity,
 }) {
   return (
     <div>
@@ -28,8 +17,17 @@ export default function Painting({
         Автор: <a href={authorUrl}>{authorTag}</a>
       </p>
       <p>Ціна: {price}</p>
-      <p>Доступність: Редер по умові</p>
+      <p>Доступність: {quantity < 10 ? "закінчуються" : "є у наявності"}</p>
       <button type="button">Добавити в корзину</button>
     </div>
   );
 }
+
+Painting.propTypes = {
+  imgUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  authorUrl: PropTypes.string.isRequired,
+  authorTag: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
+};

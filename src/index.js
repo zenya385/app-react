@@ -2,6 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+//* ===================================
 // const elem1 = React.createElement("span", { className: "span" }, "Hello");
 // const elem2 = React.createElement("span", { className: "span" }, "world!");
 
@@ -59,12 +66,7 @@ import App from "./App";
 //   document.querySelector("#root")
 // );
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <>
-    <App />
-  </>
-);
-
+//* ====================================================
 // import React from "react";
 // import ReactDOM from "react-dom/client";
 // import "./index.css";
