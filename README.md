@@ -102,3 +102,49 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
   <button type="button">Добавить в корзину</button>
 </div>
 ```
+
+<!--* ============= стилізація ================================== -->
+<!--* ============= Вбудовані стилі ================================== -->
+
+style={{ listStyle: "none", textAlign: "center" }}
+
+======================================
+const paintingListStyle = {
+listStyle: "none",
+textAlign: "center",
+padding: "20px",
+};
+
+   <ul style={paintingListStyle}>
+
+<!--* ============= Ванільний CSS ================================== -->
+
+src/components/PaintingList/PaintingList.css
+
+.p-list {
+list-style: none;
+text-align: center;
+padding: 20px;
+}
+
+src/components/PaintingList/PaintingList.jsx
+
+import "./PaintingList.css";
+
+  <ul className="p-list">
+
+<!--* ============= CSS-модулі ================================== -->
+
+src/components/PaintingList/PaintingList.module.css (name file + .module.css)
+
+.p-list {
+list-style: none;
+text-align: center;
+padding: 20px;
+}
+
+src/components/PaintingList/PaintingList.jsx
+
+import style from "./PaintingList.module.css"
+
+  <ul className={style.p-list}>

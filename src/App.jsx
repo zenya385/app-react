@@ -1,5 +1,5 @@
 import Section from "./components/Section";
-import PaintingList from "./components/PaintingList";
+import PaintingList from "./components/PaintingList/PaintingList";
 import paintings from "../src/paintings.json";
 
 function App() {

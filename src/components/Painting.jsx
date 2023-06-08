@@ -10,7 +10,7 @@ export default function Painting({
   quantity,
 }) {
   return (
-    <div>
+    <div style={{ marginTop: 50 }}>
       <img src={imgUrl} alt={title} width="480" />
       <h2>{title}</h2>
       <p>
