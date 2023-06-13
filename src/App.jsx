@@ -1,10 +1,12 @@
 import Section from "./components/Section";
 import PaintingList from "./components/PaintingList/PaintingList";
 import paintings from "../src/paintings.json";
+import Counter from "./components/Counter/Counter";
 
 function App() {
   return (
     <div>
+      <Counter step={3} />
       <Section title="Gallery">
         <PaintingList items={paintings} />
       </Section>
