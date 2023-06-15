@@ -7,7 +7,8 @@ function App() {
   return (
     <div>
       <Counter step={3} />
-      <Section title="Gallery">
+
+      <Section style={{ textAlign: "center" }} title="Gallery">
         <PaintingList items={paintings} />
       </Section>
 

@@ -44,9 +44,10 @@ export default class Counter extends Component {
     return (
       <div className={s.wrap}>
         <h1 className={s.title}>Hello, class component!</h1>
-        <span>{this.state.value}</span>
+        <span className={s.count_value}>{this.state.value}</span>
         <div>
           <button
+            className={s.count_button}
             type="button"
             // onClick={() => {
             //   console.log("click +1");
@@ -55,7 +56,11 @@ export default class Counter extends Component {
           >
             Збільшити на {step}
           </button>
-          <button type="button" onClick={this.handleDecrement}>
+          <button
+            className={s.count_button}
+            type="button"
+            onClick={this.handleDecrement}
+          >
             Зменшити на {step}
           </button>
         </div>

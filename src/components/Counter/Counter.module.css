@@ -13,7 +13,7 @@
   margin: 0 auto;
 }
 
-button {
+.count_button {
   border: none;
   padding: 10px 15px;
   background-color: teal;
@@ -32,7 +32,7 @@ button:active {
   box-shadow: 2px 5px 2px 0 rgb(0 0 0 / 0.5);
 }
 
-span {
+.count_value {
   margin-right: 15px;
   margin-left: 15px;
   font-size: 64px;
