@@ -12,6 +12,7 @@
 
 import React, { Component } from "react";
 import s from "./Counter.module.css";
+import Controls from "./Controls";
 
 //rcc
 
@@ -40,13 +41,18 @@ export default class Counter extends Component {
   };
 
   render() {
-    const { step } = this.props;
+    // const { step } = this.props;
     return (
       <div className={s.wrap}>
         <h1 className={s.title}>Hello, class component!</h1>
         <span className={s.count_value}>{this.state.value}</span>
         <div>
-          <button
+          <Controls
+            onDecrement={this.handleDecrement}
+            onIncrement={this.handleIncrement}
+            step={this.props.step}
+          />
+          {/* <button
             className={s.count_button}
             type="button"
             // onClick={() => {
@@ -62,7 +68,7 @@ export default class Counter extends Component {
             onClick={this.handleDecrement}
           >
             Зменшити на {step}
-          </button>
+          </button> */}
         </div>
       </div>
     );

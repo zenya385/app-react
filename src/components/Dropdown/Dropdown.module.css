@@ -1,0 +1,35 @@
+.dropdown {
+  position: relative;
+  width: 420px;
+  padding: 20px;
+  border: 1px solid black;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.dropdown_toggle {
+  border: none;
+  padding: 10px 15px;
+  background-color: teal;
+  color: #fff;
+  font-weight: 500;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 1px 2px 2px 0 rgb(0 0 0 / 0.5);
+  transition: box-shadow 250ms linear;
+  /* margin: 0 auto; */
+}
+
+.dropdown_menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 420px;
+  padding: 20px;
+  text-align: center;
+  background-color: teal;
+  color: white;
+}
