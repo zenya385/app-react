@@ -15,7 +15,6 @@ import s from "./Counter.module.css";
 import Controls from "./Controls";
 
 //rcc
-
 export default class Counter extends Component {
   static defaultProps = {
     step: 1,
