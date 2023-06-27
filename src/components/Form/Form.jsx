@@ -1,57 +1,50 @@
 import React, { Component } from "react";
+import { nanoid } from "nanoid";
 
 export default class Form extends Component {
+  loginInputId = nanoid();
+  //   nickInputId = nanoid();
+  //  passInputId = nanoid();
+
   state = {
     inputValue: "",
     tag: "",
     password: "",
   };
 
-  // handleChangeName = (e) => {
-  //   // console.log("e.target.value :>> ", e.currentTarget.value);
-  //   this.setState({
-  //     inputValue: e.target.value,
-  //   });
-  // };
-  // handleChangeTag = (e) => {
-  //   // console.log("e.target.value :>> ", e.currentTarget.value);
-  //   this.setState({
-  //     tag: e.target.value,
-  //   });
-  // };
-  // handleChangePassword = (e) => {
-  //   // console.log("e.target.value :>> ", e.currentTarget.value);
-  //   this.setState({
-  //     password: e.target.value,
-  //   });
-  // };
-
   handleInputChange = (e) => {
     this.setState({
-      [e.currentTarget.name]: e.currentTarget.value,
+      [e.target.name]: e.target.value,
     });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log("this.state :>> ", this.state);
-    this.props.onSubmit(this.state);
+    this.props.onSubmitq(this.state);
+    this.reset();
+  };
+
+  reset = () => {
+    this.setState({
+      inputValue: "",
+      tag: "",
+      password: "",
+    });
   };
 
   render() {
     return (
       <div>
-        <form>
-          <label>
-            Ім'я
-            <input
-              type="text"
-              name="inputValue"
-              placeholder="введіть своє ім'я"
-              value={this.state.inputValue}
-              onChange={this.handleInputChange}
-            />
-          </label>
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor={this.loginInputId}>Ім'я</label>
+          <input
+            id={this.loginInputId}
+            type="text"
+            name="inputValue"
+            placeholder="введіть своє ім'я"
+            value={this.state.inputValue}
+            onChange={this.handleInputChange}
+          />
           <label>
             Нікнейм
             <input

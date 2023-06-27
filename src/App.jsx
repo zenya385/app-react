@@ -5,10 +5,9 @@
 // import Dropdown from "./components/Dropdown/Dropdown";
 import { Component } from "react";
 import Form from "./components/Form/Form";
+import LoginForm from "./components/LoginForm/LoginForm";
 
 export default class App extends Component {
-  state = {};
-
   handleSubmitForm = (data) => {
     console.log("data :>> ", data);
   };
@@ -16,7 +15,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Form onSubmit={this.handleSubmitForm} />
+        <Form onSubmitq={this.handleSubmitForm} />
+        {/* <LoginForm onSubmit={(values) => console.log(values)} /> */}
+
         {/* <Counter step={2} />
       <Dropdown />
       <Section style={{ textAlign: "center" }} title="Gallery">
