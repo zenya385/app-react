@@ -4,8 +4,9 @@
 // import Counter from "./components/Counter/Counter";
 // import Dropdown from "./components/Dropdown/Dropdown";
 import { Component } from "react";
-import Form from "./components/Form/Form";
-import LoginForm from "./components/LoginForm/LoginForm";
+// import Form from "./components/Form/Form";
+// import LoginForm from "./components/LoginForm/LoginForm";
+import LifeCycle from "./components/LifeCycle/LifeCycle";
 
 export default class App extends Component {
   handleSubmitForm = (data) => {
@@ -15,7 +16,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Form onSubmitq={this.handleSubmitForm} />
+        <LifeCycle val={5} />
+        {/* <Form onSubmitq={this.handleSubmitForm} /> */}
         {/* <LoginForm onSubmit={(values) => console.log(values)} /> */}
 
         {/* <Counter step={2} />
