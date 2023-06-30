@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 
 export default function Section({ title, children }) {
   return (
-    <div>
-
-
+    <div style={{ textAlign: "center", marginTop: 50 }}>
       {title && <h2>{title}</h2>}
       {children}
     </div>
