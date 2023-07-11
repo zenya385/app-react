@@ -16,6 +16,7 @@ import TodoList from "./components/TodoList/TodoList";
 import TodoFilter from "./components/TodoFilter/TodoFilter";
 import Todo from "./components/Todo/Todo";
 import TodoEditor from "./components/TodoEditor/TodoEditor";
+import App1 from "./components/Counter/Counter";
 
 export default class App extends Component {
   state = {
@@ -146,12 +147,13 @@ export default class App extends Component {
         {/* <LifeCycle val={5} /> */}
         {/* <Form onSubmitq={this.handleSubmitForm} /> */}
         {/* <LoginForm onSubmit={(values) => console.log(values)} /> */}
-        {/* <Counter step={2} /> */}
+        <Counter step={1} />
         {/* <Dropdown /> */}
         {/* <Section title="Gallery">
           <PaintingList items={paintings} />
         </Section> */}
         {/* <Section title="Top gallery" /> */}
+        <App1 />
       </Container>
     );
   }
