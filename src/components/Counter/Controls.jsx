@@ -1,7 +1,12 @@
-import React from "react";
+import { createContext, useContext, useState } from "react";
+import UserContext from "../context/UserContext.jsx";
 import s from "./Counter.module.css";
+import Clock from "../Clock/Clock";
 
 export default function Controls({ step, onDecrement, onIncrement }) {
+  // const UserContext = createContext(value)
+  const btn = useContext(UserContext);
+  console.log("user", UserContext);
   return (
     <>
       <button
@@ -17,6 +22,8 @@ export default function Controls({ step, onDecrement, onIncrement }) {
       <button className={s.count_button} type="button" onClick={onDecrement}>
         Зменшити на {step}
       </button>
+
+      <Clock />
     </>
   );
 }

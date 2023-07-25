@@ -16,6 +16,7 @@ import TodoList from "./components/TodoList/TodoList";
 import TodoFilter from "./components/TodoFilter/TodoFilter";
 import Todo from "./components/Todo/Todo";
 import TodoEditor from "./components/TodoEditor/TodoEditor";
+import Counter1 from "./components/Counter1/Counter1";
 import App1 from "./components/Counter/Counter";
 
 export default class App extends Component {
@@ -42,7 +43,7 @@ export default class App extends Component {
     const prevTodos = prevState.todos;
 
     if (nextTodos !== prevTodos) {
-      console.log("Обновилось поле todos, записую todos в сховище");
+      // console.log("Обновилось поле todos, записую todos в сховище");
       localStorage.setItem("todos", JSON.stringify(nextTodos));
     }
 
@@ -122,9 +123,13 @@ export default class App extends Component {
         <button type="button" onClick={this.toggleModal}>
           відкрити модалку
         </button>
+        <Clock />
+
         {showModal && (
           <Modal onClose={this.toggleModal}>
             <Form onSubmitq={this.handleSubmitForm} />
+            <Clock />
+            <Clock />
             <Clock />
             <button type="button" onClick={this.toggleModal}>
               закрити модалку
@@ -148,12 +153,13 @@ export default class App extends Component {
         {/* <Form onSubmitq={this.handleSubmitForm} /> */}
         {/* <LoginForm onSubmit={(values) => console.log(values)} /> */}
         <Counter step={1} />
+        <Counter1 />
         {/* <Dropdown /> */}
         {/* <Section title="Gallery">
           <PaintingList items={paintings} />
         </Section> */}
         {/* <Section title="Top gallery" /> */}
-        <App1 />
+        {/* <App1 step={6} /> */}
       </Container>
     );
   }
