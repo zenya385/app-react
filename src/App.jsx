@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+
 import { Component } from "react";
 import shortid from "shortid";
 import Section from "./components/Section";
@@ -18,6 +18,18 @@ import Todo from "./components/Todo/Todo";
 import TodoEditor from "./components/TodoEditor/TodoEditor";
 import Counter1 from "./components/Counter1/Counter1";
 import App1 from "./components/Counter/Counter";
+import { Route, Routes } from "react-router";
+import { Link, NavLink } from "react-router-dom";
+import NotFound from "./components/NotFound/NotFound";
+import ColorPicker from "./components/ColorPicker/ColorPicker";
+import styled from "styled-components";
+
+const StyledLink = styled(NavLink)`
+  color: black;
+
+  &.active {
+    color: orange;
+  }`
 
 export default class App extends Component {
   state = {
@@ -118,14 +130,18 @@ export default class App extends Component {
     const completedTodoCount = this.calculateCompletedTodos();
     const visibleTodos = this.getVisibleTodos();
 
+
+
     return (
       <Container>
-        <button type="button" onClick={this.toggleModal}>
-          відкрити модалку
-        </button>
-        <Clock />
 
-        {showModal && (
+
+        {/* <button type="button" onClick={this.toggleModal}>
+          відкрити модалку
+        </button> */}
+        {/* <Clock /> */}
+
+        {/* {showModal && (
           <Modal onClose={this.toggleModal}>
             <Form onSubmitq={this.handleSubmitForm} />
             <Clock />
@@ -135,32 +151,48 @@ export default class App extends Component {
               закрити модалку
             </button>
           </Modal>
-        )}
+        )} */}
         {/* <Clock /> */}
-        <TodoEditor onSubmit={this.addTodo} />
+        {/* <TodoEditor onSubmit={this.addTodo} /> */}
 
         {/* <div>
           <p>Всього нотаток: {totalTodoCount}</p>
           <p>Виконано: {completedTodoCount}</p>
         </div> */}
         {/* <TodoFilter value={filter} onChange={this.changeFilter} /> */}
-        <TodoList
+        {/* <TodoList
           todos={visibleTodos}
           onDeleteTodo={this.deleteTodo}
           onToggleCompleted={this.toggleCompleted}
-        />
+        /> */}
         {/* <LifeCycle val={5} /> */}
         {/* <Form onSubmitq={this.handleSubmitForm} /> */}
         {/* <LoginForm onSubmit={(values) => console.log(values)} /> */}
-        <Counter step={1} />
-        <Counter1 />
+       {/* <Counter step={1} /> */}
+        {/* <Counter1 /> */}
         {/* <Dropdown /> */}
         {/* <Section title="Gallery">
           <PaintingList items={paintings} />
         </Section> */}
         {/* <Section title="Top gallery" /> */}
         {/* <App1 step={6} /> */}
+
+        <nav style={{ display:"flex", justifyContent:"space-evenly"}}>
+          <StyledLink to="/">Home</StyledLink>
+          <StyledLink to="/colorpicker">ColorPicker</StyledLink>
+          <StyledLink to="/painting">Painting List</StyledLink>
+          {/* <StyledLink to="/products">Products</StyledLink> */}
+        </nav>
+        <Routes>
+          <Route path="/" element={  <Clock/> } />
+          <Route path="/colorpicker" element={  <ColorPicker/> } />
+          <Route path="/about" element={  <Counter1 /> } />
+          <Route path="/painting" element={  <PaintingList /> } />
+          <Route path="/todo" element={ <Form onSubmitq={this.handleSubmitForm} /> } />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </Container>
+
     );
   }
 }
