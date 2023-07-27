@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Todo = ({ text, completed, onToggleCompleted, onDelete }) => (
+const  Todo = ({ text, completed, onToggleCompleted, onDelete }) => (
   <>
     <input
       type="checkbox"
@@ -10,9 +10,10 @@ const Todo = ({ text, completed, onToggleCompleted, onDelete }) => (
     />
     <p className="TodoList__text">{text}</p>
     <button type="button" className="TodoList__btn" onClick={onDelete}>
-      Удалить
+      Видалити
     </button>
   </>
 );
 
 export default Todo;
+

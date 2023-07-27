@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import './ColorPicker.css';
-import { Outlet } from 'react-router';
+
 
 class ColorPicker extends PureComponent {
   state = {
@@ -19,6 +19,9 @@ class ColorPicker extends PureComponent {
   };
 
   render() {
+    if (!this.state.activeOptionIdx || this.state.activeOptionIdx.length === 0) {
+      return null
+    }
     const { activeOptionIdx } = this.state;
     const { options } = this.props;
     const { label } = options[activeOptionIdx];
