@@ -225,9 +225,9 @@ import { Route, Routes, Link, NavLink } from "react-router-dom";
 import NotFound from "./components/NotFound/NotFound";
 import ColorPicker from "./components/ColorPicker/ColorPicker";
 import styled from "styled-components";
-import ToDoPage from "./pages/ToDoPage/ToDoPage";
-import Painting from "./components/Painting";
-import PaintingPage from "./pages/PaitingPage/PaintingPage";
+// import ToDoPage from "./pages/ToDoPage/ToDoPage";
+// import Painting from "./components/Painting";
+// import PaintingPage from "./pages/PaitingPage/PaintingPage";
 
 const StyledLink = styled(NavLink)`
   color: black;
@@ -256,15 +256,13 @@ const App = () => {
         <StyledLink to="/">Home</StyledLink>
         <StyledLink to="/colorpicker">Color Picker</StyledLink>
         <StyledLink to="/painting">Painting List</StyledLink>
-        <StyledLink to="/todo">To Do</StyledLink>
+        {/* <StyledLink to="/todo">To Do</StyledLink> */}
       </nav>
       <Routes>
         <Route path="/" element={<Clock />} />
         <Route path="/colorpicker" element={<ColorPicker />} />
         <Route path="/about" element={<Counter1 />} />
         <Route path="/painting" element={<PaintingList items={paintings} />} />
-        <Route path="/painting/:" element={<PaintingPage  />} />
-        <Route path="/todo" element={<ToDoPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       
