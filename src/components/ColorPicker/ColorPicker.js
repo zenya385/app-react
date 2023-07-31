@@ -1,9 +1,7 @@
-import React, { PureComponent } from 'react';
-import classNames from 'classnames';
-import './ColorPicker.css';
+import { PureComponent } from "react";
+import styles from './ColorPicker.module.css'
 
-
-class ColorPicker extends PureComponent {
+export default class ColorPicker extends PureComponent {
   state = {
     activeOptionIdx: 0,
   };
@@ -13,29 +11,25 @@ class ColorPicker extends PureComponent {
   };
 
   makeOptionClassName = index => {
-    return classNames('ColorPicker__option', {
-      'ColorPicker__option--active': index === this.state.activeOptionIdx,
-    });
+    return index === this.state.activeOptionIdx
+      ? styles.activeOption
+      : styles.option;
   };
 
   render() {
-    if (!this.state.activeOptionIdx || this.state.activeOptionIdx.length === 0) {
-      return null
-    }
     const { activeOptionIdx } = this.state;
     const { options } = this.props;
     const { label } = options[activeOptionIdx];
-    
 
     return (
-   
-      <div className="ColorPicker">
-        <h2 className="ColorPicker__title">Color Picker</h2>
+      <div className={styles.container}>
+        <h2 className={styles.title}>Color Picker</h2>
         <p>Выбран цвет: {label}</p>
         <div>
           {options.map(({ label, color }, index) => (
             <button
               key={label}
+              aria-label={label}
               className={this.makeOptionClassName(index)}
               style={{ backgroundColor: color }}
               onClick={() => this.setActiveIdx(index)}
@@ -46,5 +40,3 @@ class ColorPicker extends PureComponent {
     );
   }
 }
-
-export default ColorPicker;

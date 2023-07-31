@@ -225,9 +225,22 @@ import { Route, Routes, Link, NavLink } from "react-router-dom";
 import NotFound from "./components/NotFound/NotFound";
 import ColorPicker from "./components/ColorPicker/ColorPicker";
 import styled from "styled-components";
+import ToDoPage from "./pages/ToDoPage/ToDoPage";
+import CouterPage from "./pages/CounterPage.jsx/CouterPage";
+import Painting from "./components/Painting";
+import SharedLayout from "./components/SharedLayout/SharedLayout";
 // import ToDoPage from "./pages/ToDoPage/ToDoPage";
 // import Painting from "./components/Painting";
 // import PaintingPage from "./pages/PaitingPage/PaintingPage";
+
+const colorPickerOptions = [
+  { label: 'red', color: '#F44336' },
+  { label: 'green', color: '#4CAF50' },
+  { label: 'blue', color: '#2196F3' },
+  { label: 'grey', color: '#607D8B' },
+  { label: 'pink', color: '#E91E63' },
+  { label: 'indigo', color: '#3F51B5' },
+];
 
 const StyledLink = styled(NavLink)`
   color: black;
@@ -237,7 +250,7 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-const App = () => {
+ const App = () => {
  const [showModal, setShowModal] = useState(false);
 
   const handleSubmitForm = (data) => {
@@ -255,18 +268,28 @@ const App = () => {
       <nav style={{ display: "flex", justifyContent: "space-evenly" }}>
         <StyledLink to="/">Home</StyledLink>
         <StyledLink to="/colorpicker">Color Picker</StyledLink>
+        <StyledLink to="/counter">Counter</StyledLink>
+        <StyledLink to="/counter1">Counter1</StyledLink>
         <StyledLink to="/painting">Painting List</StyledLink>
-        {/* <StyledLink to="/todo">To Do</StyledLink> */}
+        <StyledLink to="/todo">To Do</StyledLink>
       </nav>
+    {/* // <SharedLayout>/ */}
       <Routes>
-        <Route path="/" element={<Clock />} />
-        <Route path="/colorpicker" element={<ColorPicker />} />
-        <Route path="/about" element={<Counter1 />} />
+        <Route path="/" element={<Clock />  } />
+        <Route path="/colorpicker" element={<ColorPicker options={colorPickerOptions}/>} />
+        <Route path="/counter" element={<CouterPage />} />
+        <Route path="/counter1" element={<Counter1 />} />
         <Route path="/painting" element={<PaintingList items={paintings} />} />
+        <Route path="/todo" element={<ToDoPage />}>
+          <Route path="painting" element={<div> Painting </div>} />
+          <Route path="clock" element={<Clock/>} />
+          <Route path="counter" element={<Counter step={3} />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
+        {/* </Route> */}
       </Routes>
-      
-    </Container>
+      {/* // </SharedLayout> */}
+</Container>
   );
 };
 

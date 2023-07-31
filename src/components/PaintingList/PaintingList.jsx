@@ -12,8 +12,9 @@ import style from "./PaintingList.module.css";
 export default function PaintingList({ items }) {
 
     if (!items || items.length === 0) {
-    return <p>No paintings to display</p>; // Або покажіть альтернативний контент, якщо масив порожній або не визначений
+    return <h1>No paintings to display!</h1>; // Або покажіть альтернативний контент, якщо масив порожній або не визначений
   }
+   
   return (
     //*-- = Inline стилі==========
 
