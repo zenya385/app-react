@@ -12,11 +12,10 @@ export default function Counter1() {
     setCounterB((prevState) => prevState + 1);
   };
 
-  useEffect(() => {
-  }, [counterA, counterB]);
+  useEffect(() => {}, [counterA, counterB]);
 
   return (
-    <>
+    <div className={styles.wrapBtn}>
       <button
         className={styles.btn}
         type="button"
@@ -32,6 +31,6 @@ export default function Counter1() {
       >
         Жмакнули counterB {counterB} раз
       </button>
-    </>
+    </div>
   );
 }
