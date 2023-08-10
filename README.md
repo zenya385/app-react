@@ -1,104 +1,28 @@
-# Getting Started with Create React App
+#  Redux
 
-Цей проект був завантажений за допомогою [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+1. Стор (store)
+Об'єкт, який містить повний стан програми, методи доступу до стану та відправлення екшенів. У програмі може бути лише один стор. Для створення стора є функція createStore(), яка приймає кілька параметрів та повертає новий об'єкт стора.
 
-In the project directory, you can run:
+createStore(reducer, preloadedState, enhancer)
 
-<!-- У каталозі проекту ви можете запустити: -->
+reducer - функція із логікою зміни стану Redux. Обов'язковий параметр.
+preloadedState - початковий стан програми. Це має бути об'єкт тієї ж форми, що й, як мінімум, частина стану. Необов'язковий параметр.
+enhancer - функція розширення можливостей стору. Необов'язковий параметр.
 
-### `npm start`
+2. Екшени (actions)
+Екшени - це об'єкти, які передають дані з компонентів у стор, тим самим сигналізуючи про те, яка подія сталася в інтерфейсі. Вони являються єдиним джерелом інформації для стору.
 
-Runs the app in the development mode.\
+const action = {
+  type: "Action type",
+  payload: "Payload value",
+};
 
-<!-- Запускає програму в режимі розробки.\ -->
+Екшени повинні мати обов'язкову властивість type - рядок який описує тип події в інтерфейсі. Крім властивості type структура об'єкта може бути довільною, проте, дані зазвичай передають у необов'язковій властивості payload. Даними екшену може бути будь-яке значення крім функцій та класів.
 
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. Редюсери (reducers)
+Ми спроектували стан програми, пов'язали компоненти та стор, додали відправлення екшенів. Настав час написати логіку зміни стану Redux.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Редюсер (reducer) - це функція, яка приймає поточний стан та екшен як аргументи і повертає новий стан. Редюсер визначає, як змінюється стан програми у відповідь на екшени, надіслані на стор. Пам'ятайте, що екшени описують тільки те, що сталося, а не як змінюється стан програми.
 
-<!-- Сторінка перезавантажиться, коли ви внесете зміни.\ -->
-<!-- Ви також можете побачити помилки у консолі. -->
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-
-<!-- Запускає програму тестування в інтерактивному режимі годинника.\ -->
-
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-<!-- Збирає програму для виробництва в папку `build`.\
-Він правильно поєднує React у робочому режимі та оптимізує збірку для найкращої продуктивності. -->
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-<!-- Збірку мінімізовано, а імена файлів містять хеші.\
-Ваш додаток готовий до розгортання! -->
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-<!-- Якщо ви не задоволені інструментом збирання та вибором конфігурації, ви можете `вилучити` будь-коли. Ця команда видалить одну залежність збірки з вашого проекту. -->
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-<!-- Натомість він скопіює всі конфігураційні файли та транзитивні залежності (webpack, Babel, ESLint тощо) прямо у ваш проект, щоб ви мали повний контроль над ними. Усі команди, крім `eject`, працюватимуть, але вони вказуватимуть на скопійовані сценарії, щоб ви могли їх налаштувати. У цей момент ви самі по собі. -->
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-<!-- Вам не потрібно ніколи використовувати `eject`. Підібраний набір функцій підходить для невеликих і середніх розгортань, і ви не повинні відчувати себе зобов’язаними використовувати цю функцію. Однак ми розуміємо, що цей інструмент не буде корисним, якщо ви не зможете налаштувати його, коли будете готові до цього. -->
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-```html
-<div>
-  <img src="" alt="" width="480" />
-  <h2></h2>
-  <p>Автор: <a href=""></a></p>
-  <p>Цена: кредитов</p>
-  <p>Доступность: заканчивается или есть в наличии</p>
-  <button type="button">Добавить в корзину</button>
-</div>
-```
+(state, action) => nextState
